@@ -31,7 +31,7 @@ char_selected = int(input('\nDigite o número do seu personagem: '))
 for char in chars:
 
     if chars.index(char)+1 == char_selected:
-        print(f'\n{char.name} selecionado!')
+        print(f'\n{char.name} selecionado!','\n')
         char.info()
         break
 
@@ -39,19 +39,36 @@ print('\n** FASE 2 **\n')
 print('Nesta floresta você vera grandes crianturas e terá várias aventuras e talvez desventuras. Então, tome cuidado!\n')
 print('Você terá de escolher entre: caminhar pelas florestas, correndo o risco de tombar com criaturas desconhecidas, ou , escolher o caminho das cavernas, mas sem saber o que há por lá\n')
 
-jorneys = [('Caminho da floresta', 1), ('Caminho das cavernas', 2)]
+class map:
+    def __init__(self, name):
+        self.name = name
+
+    def mapa(self):
+        print(f'{self.name}')
+
+jorneys = [ 
+
+    map('Caminho das montanhas'),
+    map('Caminho das cavernas')
+
+]
 
 print('Qual caminho deseja escolher? \n')
 for jorney in jorneys:
-    print(f'{jorney[1]}. {jorney[0]}')
+    print(f'{jorneys.index(jorney)+1}. {jorney.name}')
 
-jorney_selected = int(input('Digite a opção desejada: '))
+jorney_selected = int(input('\nDigite a opção desejada: '))
 
-if jorney[1] == jorney_selected:
-    print(f'\n{jorney[0]}, selecionado!\n')
+for jorney in jorneys:
+
+    if jorneys.index(jorney)+1 == jorney_selected:
+        print(f'\n{jorney.name} selecionado!\n')
+        
+        break
 
 print('** QUE COMEÇE A AVENTURA! **')
-        
+
+
 
   
 
